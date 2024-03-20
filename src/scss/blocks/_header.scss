@@ -1,0 +1,46 @@
+.header{
+    width: 100%;
+    min-height: 80px;
+    &__wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__title{
+        font-size: 30px;
+        font-family: $root-bold, sans-serif;
+        color: $main-color;
+    }
+    &__timer{
+        display: flex;
+        text-align: center;
+    }
+    &__hours{
+        //position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        &:first-child{
+            margin-left: 13px;
+        }
+        #minute, #second{
+            color: #01B9C5;
+            font-size: 60px;
+            font-family: $bebas-reg, sans-serif;
+        }
+    }
+    &__hours-timer{
+        position: relative;
+        top: -10px;
+        color: #818798;
+        font-size: 16px;
+        font-family: $root-bold;
+    }
+    &__tods{
+        margin: 0 5px;
+        color: #01B9C5;
+        font-size: 45px;
+        font-family: $bebas-reg, sans-serif;
+        padding: 0 3px;
+    }
+}

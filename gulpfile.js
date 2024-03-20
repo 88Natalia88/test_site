@@ -13,11 +13,11 @@ const fonter =require('gulp-fonter');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
-//const path = require('path');
+
 
 
 function server(){
-    browserSync({
+    browserSync.init({
         server: {
             baseDir: "dist"
         }

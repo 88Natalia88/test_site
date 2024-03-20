@@ -1,12 +1,29 @@
 @font-face{
-    font-family: 'Lato-Hairline';
+    font-family: 'BebasNeue-Regular';
     font-display: swap;
-    src: url('../fonts/Lato-Hairline.woff') format('woff'), url('../fonts/Lato-Hairline.woff2') format('woff2');
+    src: url('../fonts/BebasNeue-Regular.woff') format('woff'), url('../fonts/BebasNeue-Regular.woff2') format('woff2');
 }
 
+@font-face{
+    font-family: 'PTRootUIBold';
+    font-display: swap;
+    src: url('../fonts/PTRootUIBold.woff') format('woff'), url('../fonts/PTRootUIBold.woff2') format('woff2');
+}
 
+@font-face{
+    font-family: 'PTRootUIMedium';
+    font-display: swap;
+    src: url('../fonts/PTRootUIMedium.woff') format('woff'), url('../fonts/PTRootUIMedium.woff2') format('woff2');
+}
 
+@font-face{
+    font-family: 'PTRootUIRegular';
+    font-display: swap;
+    src: url('../fonts/PTRootUIRegular.woff') format('woff'), url('../fonts/PTRootUIRegular.woff2') format('woff2');
+}
 
-
-
-
+@font-face{
+    font-family: 'Rubik-Bold';
+    font-display: swap;
+    src: url('../fonts/Rubik-Bold.woff') format('woff'), url('../fonts/Rubik-Bold.woff2') format('woff2');
+}
