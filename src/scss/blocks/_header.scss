@@ -10,6 +10,9 @@
         font-size: 30px;
         font-family: $root-bold, sans-serif;
         color: $main-color;
+        @include xxs{
+            font-size: 16px;
+        }
     }
     &__timer{
         display: flex;
@@ -27,6 +30,9 @@
             color: #01B9C5;
             font-size: 60px;
             font-family: $bebas-reg, sans-serif;
+            @include xxs{
+                font-size: 40px;
+            }
         }
     }
     &__hours-timer{
@@ -35,6 +41,9 @@
         color: #818798;
         font-size: 16px;
         font-family: $root-bold;
+        @include xxs{
+            font-size: 14px;
+        }
     }
     &__tods{
         margin: 0 5px;
@@ -42,5 +51,8 @@
         font-size: 45px;
         font-family: $bebas-reg, sans-serif;
         padding: 0 3px;
+        @include xxs{
+            font-size: 35px;
+        }
     }
 }

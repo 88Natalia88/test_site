@@ -115,10 +115,12 @@ function renderOffer(discountProducts, oldPrice) {
 //появление модального окна
 function displayModal() {
     modal.style.display = 'block';
+    document.body.classList.add('locked');
 }
 //закрываем модальное окно
 closeBtn.addEventListener('click', ()=>{
     modal.style.display = 'none';
+    document.body.classList.remove('locked');
 })
 
 //выводим товар в html
@@ -135,9 +137,10 @@ function renderProducts(popularProducts, oldPrice) {
                     <img src='icons/Star.svg' alt="star" class='proposal__item-star'>
                     <p class='proposal__item-percent'>-${percentChange}%</p>
                 </div>
-                <s class='proposal__item-oldPrice'>${oldPrice[index]}&#8381;</s>
+                
                 <p class="proposal__item-name">${product.name}</p>
                 <p class='proposal__item-price'>${product.price}&#8381;</p>
+                <s class='proposal__item-oldPrice'>${oldPrice[index]}&#8381;</s>
             `;
             item.innerHTML += itemInfo;
         }
@@ -146,6 +149,8 @@ function renderProducts(popularProducts, oldPrice) {
 //стоимость по истечению времени
 
 function getNewPrice(){
+    const screenWidth = window.innerWidth;
+
     document.querySelectorAll('.proposal__item-sale').forEach(item => {
         item.style.display = 'none';
     });
@@ -160,6 +165,11 @@ function getNewPrice(){
             item.classList.add('proposal__item-oldPrice_new');
         }
     })
+    if (screenWidth <= 768){
+        document.querySelectorAll('.proposal__item-motivation').forEach(item =>{
+            item.style.cssText = 'grid-row: 2/3; grid-colum: 1/2;';
+        })
+    }
 }
 
 
