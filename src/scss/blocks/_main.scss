@@ -19,7 +19,6 @@
         margin-top: 98px;
         display: flex;
         justify-content: center;
-        //text-align: center;
         column-gap: 94px;
         @include xxs{
             margin-top: 20px;
@@ -53,8 +52,6 @@
         padding: 45px 10px 15px 31px;
         display: flex;
         flex-direction: column;
-        //justify-content: center;
-        //align-items: center;
         border: 2px solid rgb(211, 214, 221);
         border-radius: 20px;
         background: rgb(255, 255, 255);
@@ -203,7 +200,6 @@
     }
     &__item-motivation{
         text-align: center;
-        //padding: 0 43px;
         margin-top: 31px;
         order: 4;
         font-size: 16px;
@@ -294,7 +290,6 @@
             display: inline-block;
             width: 24px;
             height: 24px;
-            //border: 2px solid #477ADA;
             border-radius: 4.8px;
             background: rgb(1, 185, 197);
             position: absolute;
