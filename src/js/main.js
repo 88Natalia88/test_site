@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', () =>{
     startCountdown();
 })
 
+
 const items = document.querySelectorAll('.proposal__item');
 const modalItems = document.querySelector('.modal__popup-items');
 const closeBtn = document.querySelector('.modal__popup-close');
@@ -37,7 +38,10 @@ function updateCountdown() {
     if (countdown < 0) {
         clearInterval(timerInterval);
         getNewPrice();
-        displayModal();
+        //displayModal();
+        setTimeout(() => {
+            displayModal();
+        }, 2100);
         return;
     }
 
@@ -96,15 +100,17 @@ function renderOffer(discountProducts, oldPrice) {
             
             items.forEach(item =>{
                 const radioButton = item.querySelector('.modal__popup-radio');
+                const customBtn = item.querySelector('.modal__castom-radio');
                 item.addEventListener('click', () =>{
                     radioButton.checked = true;
                     items.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.style.cssText = '';
+                            otherItem.querySelector('.modal__castom-radio').style.cssText = '';
                         }
                     });
                     item.style.cssText = 'border: 2px solid rgb(1, 185, 197); background: rgba(1, 185, 197, 0.05);';
-                    
+                    customBtn.style.cssText = 'border: 1.5px solid rgb(1, 185, 197);'
                 });
             });
         }
@@ -148,14 +154,30 @@ function renderProducts(popularProducts, oldPrice) {
 }
 //стоимость по истечению времени
 
-function getNewPrice(){
+/*function getNewPrice(){
     const screenWidth = window.innerWidth;
+    const itemPrice = gsap.timeline({})
+
+    itemPrice.to('.proposal__item-price',{
+            duration: 2,
+            rotation: 360,
+            repeat: -1,
+            ease: "none"
+        })
+        gsap.to('.proposal__item-price', {
+            duration: 0.5,
+            opacity: 0,
+            delay: 1,
+            
+        });
+        
+
 
     document.querySelectorAll('.proposal__item-sale').forEach(item => {
         item.style.display = 'none';
     });
     document.querySelectorAll('.proposal__item-price').forEach(item =>{
-        item.style.display = 'none';
+        //item.style.display = 'none';
     });
     const arr = document.querySelectorAll('.proposal__item-oldPrice');
     arr.forEach((item, index) => {
@@ -170,8 +192,46 @@ function getNewPrice(){
             item.style.cssText = 'grid-row: 2/3; grid-colum: 1/2;';
         })
     }
-}
+}*/
+function getNewPrice() {
+    const screenWidth = window.innerWidth;
+    const itemPrice = gsap.timeline({});
 
+    itemPrice.to('.proposal__item-price', {
+        duration: 2,
+        rotation: 360,
+        repeat: -1,
+        ease: "none"
+    });
+
+    gsap.to('.proposal__item-price', {
+        duration: 0.5,
+        opacity: 0,
+        delay: 1,
+        onComplete: function() {
+            document.querySelectorAll('.proposal__item-sale').forEach(item => {
+                item.style.display = 'none';
+            });
+            document.querySelectorAll('.proposal__item-price').forEach(item =>{
+                item.style.display = 'none';
+            });
+            const arr = document.querySelectorAll('.proposal__item-oldPrice');
+            arr.forEach((item, index) => {
+                if (index === arr.length - 1) {
+                    item.classList.add('proposal__item-oldPrice_last');
+                } else {
+                    item.classList.add('proposal__item-oldPrice_new');
+                }
+            });
+        }
+    });
+
+    if (screenWidth <= 768) {
+        document.querySelectorAll('.proposal__item-motivation').forEach(item => {
+            item.style.cssText = 'grid-row: 2/3; grid-colum: 1/2;';
+        });
+    }
+}
 
 //выделение тарифа
 items.forEach(item =>{

@@ -46,11 +46,19 @@
         }
     }
     &__tods{
-        margin: 0 5px;
+        margin: 8px 5px;
+        display: block;
         color: #01B9C5;
         font-size: 45px;
         font-family: $bebas-reg, sans-serif;
         padding: 0 3px;
+        line-height: 1;
+        border-radius: 50%;
+        
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
         @include xxs{
             font-size: 35px;
         }

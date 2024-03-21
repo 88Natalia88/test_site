@@ -42,7 +42,11 @@ function html() {
 };
 
 function scripts(){
-    return src('src/js/**/*.js')
+    return src([
+        'node_modules/gsap/dist/gsap.min.js',
+        'node_modules/gsap/dist/ScrollTrigger.min.js',
+        'src/js/**/*.js'
+    ])
         .pipe(concat('main.min.js'))
         .pipe(uglify())
         .pipe(dest('dist/js'))
