@@ -23,7 +23,7 @@ async function getProducts() {
 }
 
 //секундомер
-let countdown = 40;
+let countdown = 210;
 let timerInterval;
 let minute = document.getElementById('minute');
 let second = document.getElementById('second');
